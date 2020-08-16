@@ -32,7 +32,72 @@
           <button class="header__info__btn">
             Заказать звонок
           </button>
-          
+      <!-- попап всплывающее окно -->
+          <div class="popup">
+            <div class="popup__container">
+              <div class="popup__wrapper">
+                <div class="form__inner">
+                  <div class="form__inner__title">
+                    <div class="inner__title">
+                      Заказать звонок
+                    </div>
+                    <div class="close__btn">
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                  <form class="form" action="#">
+                    <h3 class="form__title">
+                      Введите контактные данные
+                    </h3>
+                    <input class="form__input" id="name" type="text" name="name" placeholder="Фамилия Имя Отчество">
+                    <input class="form__input" id="tel" type="tel" name="tel" placeholder="Телефон">
+                    <input class="form__input" id="email" type="email" name="email" placeholder="E-mail">
+                    <textarea class="form__input" id="message" type="text" name="message" placeholder="Введите сообщение"></textarea>
+                    <div class="check__wrapper">
+                      <input type="checkbox" checked><div>Согласен на <span>обработку персональных <br>
+                        данных</span> </div> 
+                    </div>
+                    <button class="form__btn" type="button" id="send">
+                      ОТПРАВИТЬ
+                    </button>
+                  </form>
+                  <div class="error">
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      <!-- попап всплывающее окно END -->
+
+      <!-- всплывающее окно отправка заявки -->
+          <div class="popup__succes">
+            <div class="succes__container">
+              <div class="succes__close">
+                <span></span>
+                <span></span>
+              </div>
+              <div class="succes__wrapper">
+                <div class="succes__logo">
+                  <img src="img/vector.png" alt="">
+                </div>
+                <div class="succes__title">
+                  Ваша заявка отправлена
+                </div>
+                <div class="succes__subtitle">
+                  Ваш запрос был успешно отправлен! <br> Наш менеджер свяжется с Вами в ближайшее время
+                </div>
+                <div class="succes__wrapper__close">
+                  Закрыть
+                </div>
+                
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- всплывающее окно отправка заявки END -->
+
           <!-- burger 768px -->
 
           <div class="burger">
