@@ -681,16 +681,16 @@ li {
   transition: .3s all;
 }
 
-.products__number__items:first-child {
-  background-color: #54C5B0;
-  color: #ffffff;
-}
-
 .products__number__items:not(:first-child) {
   margin-left: 15px;
 }
 
 .products__number__items:hover {
+  background-color: #54C5B0;
+  color: #ffffff;
+}
+
+.active {
   background-color: #54C5B0;
   color: #ffffff;
 }
