@@ -32,7 +32,7 @@ $(function () {
     $('.error').text('');
 
     $.ajax({
-      url: 'mail.php',
+      url: '../mail.php',
       type: 'POST',
       cache: false,
       data: {
@@ -45,20 +45,45 @@ $(function () {
       beforeSend: function () {
         $('#send').prop('disabled', true)
       },
-      success: function(data) {
-        if(!data)
-          alert ('Ошибка при отправке формы')
+      success: function (data) {
+        if (!data)
+          alert('Ошибка при отправке формы')
         else
-        $('.form').trigger('reset');
-        $('#send').prop('disabled', false)
-        $('.popup').removeClass('popup__open');
-        $('.popup__succes').addClass('popup__succes__open');
-        $('.succes__close').on('click', function (e) {
+          $('.form').trigger('reset');
+          $('#send').prop('disabled', false)
+          $('.popup').removeClass('popup__open');
+          $('.popup__succes').addClass('popup__succes__open');
+          $('.succes__close').on('click', function (e) {
           e.preventDefault();
           $('.popup__succes').removeClass('popup__succes__open');
         });
       }
     });
+  });
+
+
+  $('.products__btn').on('click', function (e) {
+    e.preventDefault();
+
+    $.get('catalog.html', function (response) {
+      $('.products__inner').html(response);
+    });
+
+    $('.products__number__items').removeClass('active');
+    $('.products__number__items:nth-child(2)').addClass('active');
+
+    $('.products__btn').on('click', function (e) {
+      e.preventDefault();
+
+      $.get('catalog2.html', function (response) {
+        $('.products__inner').html(response);
+      });
+
+      $('.products__number__items').removeClass('active');
+      $('.products__number__items:nth-child(3)').addClass('active');
+
+    });
+
   });
 
 });
