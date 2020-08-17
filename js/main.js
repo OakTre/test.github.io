@@ -16,17 +16,23 @@ $(function () {
     let message = $('#message').val().trim();
 
     if (name == "") {
-      $('.error').text('Введите Имя')
+      $('.error').text('Введите Имя');
+      $('.form__input').addClass('color__input')
       return false;
     } else if (tel == "") {
       $('.error').text('Введите телефон')
+      $('.form__input').addClass('color__input')
       return false;
     } else if (email == "") {
       $('.error').text('Введите email')
+      $('.form__input').addClass('color__input')
       return false;
     } else if (message.length < 3) {
       $('.error').text('Введите сообщение не менее 3-х символов')
+      $('.form__input').addClass('color__input')
       return false;
+    } else {
+      $('.form__input').removeClass('color__input')
     }
 
     $('.error').text('');
@@ -50,10 +56,11 @@ $(function () {
           alert('Ошибка при отправке формы')
         else
           $('.form').trigger('reset');
-          $('#send').prop('disabled', false)
-          $('.popup').removeClass('popup__open');
-          $('.popup__succes').addClass('popup__succes__open');
-          $('.succes__close').on('click', function (e) {
+        $('.form__input').removeClass('color__input')
+        $('#send').prop('disabled', false)
+        $('.popup').removeClass('popup__open');
+        $('.popup__succes').addClass('popup__succes__open');
+        $('.succes__close').on('click', function (e) {
           e.preventDefault();
           $('.popup__succes').removeClass('popup__succes__open');
         });
@@ -66,23 +73,17 @@ $(function () {
     e.preventDefault();
 
     $.get('catalog.html', function (response) {
-      $('.products__inner').html(response);
+      $('.products__inner').append(response);
     });
 
-    $('.products__number__items').removeClass('active');
-    $('.products__number__items:nth-child(2)').addClass('active');
+    let current = $('.products__number__items.active');
+    let last = $('.products__number__items').last()
+    current.removeClass('active');
+    current.next('.products__number__items').addClass('active');
 
-    $('.products__btn').on('click', function (e) {
-      e.preventDefault();
-
-      $.get('catalog2.html', function (response) {
-        $('.products__inner').html(response);
-      });
-
-      $('.products__number__items').removeClass('active');
-      $('.products__number__items:nth-child(3)').addClass('active');
-
-    });
+    if (current.next('.products__number__items').hasClass('test')) {
+      $('.products__btn').css('display', 'none')
+    }
 
   });
 
